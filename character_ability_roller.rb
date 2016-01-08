@@ -1,7 +1,7 @@
 require "./die"
 class CharacterAbilityRoller
   def initialize()
-    @dice = (1..4).map { Die::SIX_SIDED_DIE }
+    @dice = (1..4).map { Die::D6 }
   end
 
   def generate_character_scores
