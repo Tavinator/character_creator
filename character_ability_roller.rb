@@ -1,21 +1,4 @@
-
-class Die
-  def initialize(sides)
-    @sides = sides
-  end
-
-  def roll
-    rand(@sides)+1
-  end
-end
-
-FOUR_SIDED_DIE = Die.new(4)
-SIX_SIDED_DIE = Die.new(6)
-EIGHT_SIDED_DIE = Die.new(8)
-TEN_SIDED_DIE = Die.new(10)
-TWELVE_SIDED_DIE = Die.new(12)
-TWENTY_SIDED_DIE = Die.new(20)
-
+require "./die"
 class CharacterAbilityRoller
   def initialize()
     @dice = (1..4).map { SIX_SIDED_DIE }
@@ -25,7 +8,7 @@ class CharacterAbilityRoller
     begin
       scores = (1..6).map { ability_score }
       total = scores.inject(:+)
-    end while total >= 78
+    end while total <= 78
     scores
   end
 
@@ -44,8 +27,5 @@ class CharacterAbilityRoller
   end
 end
 
-roller = CharacterAbilityRoller.new
-scores = roller.generate_character_scores
 
-puts scores.inspect
 
