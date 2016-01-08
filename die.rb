@@ -6,11 +6,13 @@ class Die
   def roll
     rand(@sides)+1
   end
+
+  D4 = Die.new(4)
+  D6 = Die.new(6)
+  D8 = Die.new(8)
+  D10 = Die.new(10)
+  D12 = Die.new(12)
+  D20 = Die.new(20)
 end
 
-FOUR_SIDED_DIE = Die.new(4)
-SIX_SIDED_DIE = Die.new(6)
-EIGHT_SIDED_DIE = Die.new(8)
-TEN_SIDED_DIE = Die.new(10)
-TWELVE_SIDED_DIE = Die.new(12)
-TWENTY_SIDED_DIE = Die.new(20)
+
