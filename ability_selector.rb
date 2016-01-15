@@ -40,4 +40,16 @@ ability_names.delete(ability_names.first)
 puts ability_scores
 
 
+puts "If you are NOT happy with those scores, please type in 'n'"
+puts "Otherwise we will continue to the next step of character creation"
+reselect = gets.chomp
+  if reselect == "n"
+    puts "lets restart this whole thing"
+    puts scores.sort.reverse.inspect
+  else
+    puts "lets go to skills"
+  end
+
+
+
 
