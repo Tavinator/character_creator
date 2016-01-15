@@ -27,5 +27,3 @@ class CharacterAbilityRoller
   end
 end
 
-
-
