@@ -7,8 +7,7 @@ class AbilityModifierBonus < AbilitySelector
   end
 
   def writeit
-
-    modifiers@scores.each {|k,v| puts "#{k[0..2].upcase}  #{(((v / 2).floor) -5)}"}
+    modifiers = @scores.each {|k,v| puts "#{k[0..2].upcase}  #{(((v / 2).floor) -5)}"}
   end
 end
 

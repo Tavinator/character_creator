@@ -40,6 +40,10 @@ class AbilitySelector
     @ability_names.delete(@ability_names.first)
     puts @@ability_scores
   end
+
+  def the_scores
+    @@ability_scores
+  end
 end
 
 # puts "If you are NOT happy with those scores, please type in 'n'"
