@@ -33,14 +33,7 @@ class AbilitySelector
       print "What score do you want #{@ability_names.first} to be set to?  "
       user_input
       line_dashes
-      if @score_totals.include?(@select)
-        multiple_checker
-        show_what_was_set
-        @ability_scores[@ability_names.first] = @select
-        @ability_names.delete(@ability_names.first)
-      else
-        puts "\nPlease enter a score that is one of the remaining #{@score_totals.count} ability scores\n"
-      end
+      validate_user_input
       @score_totals = @score_totals.sort.reverse
     end
   end
@@ -56,6 +49,17 @@ class AbilitySelector
       @score_totals.fill(@select, @score_totals.size,multiples_of_the_same_score-1)
     else
       @score_totals.delete(@select)
+    end
+  end
+
+  def validate_user_input
+    if @score_totals.include?(@select)
+      multiple_checker
+      show_what_was_set
+      @ability_scores[@ability_names.first] = @select
+      @ability_names.delete(@ability_names.first)
+    else
+      puts "\nPlease enter a score that is one of the remaining #{@score_totals.count} ability scores\n"
     end
   end
 
