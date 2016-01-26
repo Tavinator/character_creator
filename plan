@@ -1,0 +1,28 @@
+plan
+
+
+1. die
+2. roll scores
+3. set scores to abilities
+DONE ABOVE LINE
+4. calculate bonuses
+5. races (Human, Dwarf, Elf)
+6. classes (Fighter, Wizard, Cleric)
+7. backgrounds
+8. skills
+9. Restarter (after completing step 3 you can restart the current step you are on)
+10. Resaver (after completing step 3 you can restart any of the following steps)
+
+
+
+#restarter bits
+
+# puts "If you are NOT happy with those scores, please type in 'n'"
+# puts "Otherwise we will continue to the next step of character creation"
+# reselect = gets.chomp
+#   if reselect == "n"
+#     puts "lets restart this whole thing"
+#     puts scores.sort.reverse.inspect
+#   else
+#     puts "lets go to skills"
+#   end

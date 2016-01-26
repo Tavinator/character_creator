@@ -3,7 +3,7 @@ class AbilityModifierBonus < AbilitySelector
   def initialize()
     selector = AbilitySelector.new
     selection = selector.assign_abilities
-    @scores = selector.the_scores
+    @scores = selector.my_scores
   end
 
   def writeit
@@ -19,3 +19,7 @@ modifier_creator = AbilityModifierBonus.new
 modifier_calculator = modifier_creator.writeit
 puts modifier_calculator
 
+
+# my_hash = object_1.attributes
+# MyObject.new(my_hash)
+# object_2.attributes=my_hash

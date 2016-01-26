@@ -16,11 +16,9 @@ class AbilitySelector
     show_what_was_set
     @ability_scores[@ability_names.first] = @score_totals.first
     @ability_names.delete(@ability_names.first)
-    # puts @ability_scores
-  end
-
-  def the_scores
-    @ability_scores
+    line_dashes
+    puts "\nYour modifiers are as follows:"
+    calculate_bonuses.inspect
   end
 
   def input_checker
@@ -77,19 +75,15 @@ class AbilitySelector
     puts "This is done 6 times, aka 1 time for each ability"
     puts "We have let the computer do the rolling for you to save time"
     puts "Oh, and in the event the total of those rolls is less than 78, we do it all over again!"
-    puts "Alright lets see what you got"
+    puts "Alright lets see what you got\n"
+  end
+
+  def calculate_bonuses
+    @ability_modifiers = @ability_scores.each {|k,v| puts "#{k[0..2].upcase}  #{(((v / 2).floor) -5)}"}
   end
 end
 
-# puts "If you are NOT happy with those scores, please type in 'n'"
-# puts "Otherwise we will continue to the next step of character creation"
-# reselect = gets.chomp
-#   if reselect == "n"
-#     puts "lets restart this whole thing"
-#     puts scores.sort.reverse.inspect
-#   else
-#     puts "lets go to skills"
-#   end
+
 
 
 
