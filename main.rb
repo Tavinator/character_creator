@@ -1,4 +1,4 @@
 require "./ability_selector"
 selector = AbilitySelector.new
-selection = selector.assign_abilities
+selection = selector.set_ability_process
 

@@ -9,21 +9,15 @@ class AbilitySelector
     @score_totals = scores.sort.reverse
   end
 
-  def assign_abilities
-    input_checker
-    print "...and thus by the process of elimiation\n"
-    line_dashes
-    show_what_was_set
-    @ability_scores[@ability_names.first] = @score_totals.first
-    @ability_names.delete(@ability_names.first)
-    line_dashes
-    puts "\nYour modifiers are as follows:"
-    calculate_bonuses.inspect
-  end
-
-  def input_checker
+  def set_ability_process
     line_dashes
     description
+    score_checker
+    assign_abilities
+    calculate_bonuses
+  end
+
+  def score_checker
     puts "The total sum of your rolls was: " + @total.to_s + " so we kept it!"
     while @ability_scores.count < 5
       print "The scores that you need to set are: #{@score_totals.inspect}\n"
@@ -36,8 +30,13 @@ class AbilitySelector
     end
   end
 
-  def user_input
-    @select = gets.chomp.to_i
+  def assign_abilities
+    print "...and thus by the process of elimiation\n"
+    line_dashes
+    show_what_was_set
+    @ability_scores[@ability_names.first] = @score_totals.first
+    @ability_names.delete(@ability_names.first)
+    line_dashes
   end
 
   def multiple_checker
@@ -48,6 +47,11 @@ class AbilitySelector
     else
       @score_totals.delete(@select)
     end
+  end
+
+  def calculate_bonuses
+    puts "\nYour modifiers are as follows:"
+    @ability_modifiers = @ability_scores.each {|k,v| puts "#{k[0..2].upcase}  #{(((v / 2).floor) -5)}"}
   end
 
   def validate_user_input
@@ -65,6 +69,10 @@ class AbilitySelector
     print "-" * 75
   end
 
+  def user_input
+    @select = gets.chomp.to_i
+  end
+
   def show_what_was_set
     print "\nYour #{@ability_names.first.upcase} has been set to #{@select}!\n"
   end
@@ -76,10 +84,6 @@ class AbilitySelector
     puts "We have let the computer do the rolling for you to save time"
     puts "Oh, and in the event the total of those rolls is less than 78, we do it all over again!"
     puts "Alright lets see what you got\n"
-  end
-
-  def calculate_bonuses
-    @ability_modifiers = @ability_scores.each {|k,v| puts "#{k[0..2].upcase}  #{(((v / 2).floor) -5)}"}
   end
 end
 
