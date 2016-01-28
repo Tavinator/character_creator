@@ -8,7 +8,7 @@ DONE ABOVE LINE
 4. calculate bonuses
 5. races (Human, Dwarf, Elf)
 6. classes (Fighter, Wizard, Cleric)
-7. backgrounds
+
 8. skills
 9. Restarter (after completing step 3 you can restart the current step you are on)
 10. Resaver (after completing step 3 you can restart any of the following steps)
@@ -26,3 +26,8 @@ DONE ABOVE LINE
 #   else
 #     puts "lets go to skills"
 #   end
+
+
+
+
+create object for ability. thus each ability has, name, score, abr(read only method), bonus

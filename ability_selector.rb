@@ -1,8 +1,9 @@
 require './character_ability_roller'
 class AbilitySelector
+
   def initialize()
     @ability_names = ["Strength", "Dexerity", "Constitution", "Intelligence", "Wisdom", "Charisma"]
-    @ability_scores = Hash.new()
+    @ability_scores = {}
     roller = CharacterAbilityRoller.new
     scores = roller.generate_character_scores
     @total = scores.inject(:+)
@@ -16,6 +17,8 @@ class AbilitySelector
     assign_abilities
     calculate_bonuses
   end
+
+  private
 
   def score_checker
     puts "The total sum of your rolls was: " + @total.to_s + " so we kept it!"
@@ -51,7 +54,7 @@ class AbilitySelector
 
   def calculate_bonuses
     puts "\nYour modifiers are as follows:"
-    @ability_modifiers = @ability_scores.each {|k,v| puts "#{k[0..2].upcase}  #{(((v / 2).floor) -5)}"}
+    @ability_modifiers = @ability_scores.each {|k,v| puts "#{k[0..2].upcase}  #{(((v / 2).floor) -5)}"} # this is bad!!! help.
   end
 
   def validate_user_input
@@ -85,8 +88,11 @@ class AbilitySelector
     puts "Oh, and in the event the total of those rolls is less than 78, we do it all over again!"
     puts "Alright lets see what you got\n"
   end
-end
 
+  private
+
+  ABILITY_NAMES = ["Strength", "Dexerity", "Constitution", "Intelligence", "Wisdom", "Charisma"].freeze
+end
 
 
 
