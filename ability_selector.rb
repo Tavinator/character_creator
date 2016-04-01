@@ -12,7 +12,7 @@ class AbilitySelector
 
   def set_ability_process
     line_dashes
-    description
+    start_description
     score_checker
     assign_abilities
     calculate_bonuses
@@ -80,12 +80,12 @@ class AbilitySelector
     print "\nYour #{@ability_names.first.upcase} has been set to #{@select}!\n"
   end
 
-  def description
+  def start_description
     puts "\nTo begin we are rolling 4 D6's and if any of those rolls are a 1, we reroll it"
     puts "Then we remove the lowest number and the remaining 3 die add up to become one of your scores"
     puts "This is done 6 times, aka 1 time for each ability"
     puts "We have let the computer do the rolling for you to save time"
-    puts "Oh, and in the event the total of those rolls is less than 78, we do it all over again!"
+    puts "Oh, and in the event the total of those rolls is less than 78, we automatically do it all over again!"
     puts "Alright lets see what you got\n"
   end
 

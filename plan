@@ -31,3 +31,20 @@ DONE ABOVE LINE
 
 
 create object for ability. thus each ability has, name, score, abr(read only method), bonus
+
+
+
+1. Select the Race
+  1- Human (short description)
+  2- Dwarf (Etc)
+  3- Elf (Etc)
+To read the full description select a race by entering in the corresponding number OR if you know the race you want to play as type it out.
+
+1a description text then go back to 1.
+1b you have selected (race), are you sure? y = go to 2. n = go to 1.
+
+2H. Do you wan to use the variant rules?
+(show variant rules), or (any key to continue)
+(show normal rule)
+
+2D. Dwarfs have 2 subraces (Hill, Mountain)
