@@ -1,8 +1,23 @@
 
 class Step
-    def enter()
+
+  def enter()
     # puts "This step is not yet configured. Subclass it and implement enter()."
     # exit(1)
+  end
+
+  def continue()
+    puts "...press 'Enter' to continue"
+    $stdin.gets.chomp
+    system "clear"
+  end
+
+  def instructions()
+    print """
+    If you know the #{@section} you want to select type it in as show on the screen
+    Otherwise type in the number to know more about each #{@section}
+    There are #{@options} choices of #{@section}:
+    """
   end
 end
 
@@ -26,6 +41,7 @@ class Engine
   end
 end
 
+
 class Introduction < Step
 
   def enter()
@@ -35,9 +51,7 @@ class Introduction < Step
     Follow the prompts and soon you will have yourself a character ready for
     ADVENTURE!!!!
     """
-    puts "...press any key to continue"
-    $stdin.gets.chomp
-    system "clear"
+    continue
     return 'race_step'
   end
 end
@@ -49,17 +63,15 @@ class Race < Step
     The first step is selecting a race for your character.
     The race determines what extra racial abilities you will get
     """
-    puts "...press any key to continue"
-    $stdin.gets.chomp
-    system "clear"
+    continue
     race_selector_rules
   end
 
   def race_selector_rules
+    @options = 3
+    @section = "race"
+    instructions
     print """
-    If you know the race you want to select type it in as show on the screen
-    Otherwise type in the number to know more about each race
-    There are 3 choices of races:
     1. 'Human' (Blah blah humans have these things)
     2. 'Dwarf' (Blah Dwarves have these other things)
     3. 'Elf' (Elves have these things)
@@ -82,32 +94,27 @@ class Race < Step
 
   def race_descriptions
     if @choice == "1"
-      puts "human shit is this"
+      puts "humans are cool they do stuff, this is a blurb about them."
     elsif @choice == "2"
-      puts "dwarf shit is this"
+      puts "dwarves be cooler, cuz they are smaller n shit."
     else @choice == "3"
-      puts "elf shit be this too"
+      puts "elves think they are all that. They be nimble n shit."
     end
     race_selector_rules
   end
 
   def race_selection_logic
+    @section = "race"
     system "clear"
     print """
-    Perfect! You know what you would like to play as!
+    Perfect! You have selected #{@choice} as your #{@section}!
     """
     if @choice == ("Human")
-      puts "And you have selected 'Human' as your race"
       return 'human_subrace_step'
     elsif @choice == ("Dwarf")
-      puts "And you have selected 'Dwarf' as your race"
       return 'dwarf_subrace_step'
-    elsif @choice == ("Elf")
-      puts "And you have selected 'Elf' as your race"
+    else @choice == ("Elf")
       return 'elf_subrace_step'
-    else
-      puts "there are only 3 options please select one of the three"
-      race_selection
     end
   end
 end
@@ -115,7 +122,10 @@ end
 class HumanSubraces < Step
 
   def enter()
-    puts "human subrace selection"
+    continue
+    @options = 2
+    @section = "variants"
+    instructions
     return 'background_step'
   end
 end
@@ -123,7 +133,15 @@ end
 class DwarfSubraces < Step
 
   def enter()
-    puts "DWARF subrace selection"
+    continue
+    @options = 2
+    @section = "subrace"
+    instructions
+    print """
+    There are 2 kinds of Dwarves
+    1. 'Hill' (warmer climate has +1 to this and +1 to this)
+    2. 'Mountain' (colder climate has +1 and does this other thing)
+    """
     return 'background_step'
   end
 end
@@ -131,7 +149,10 @@ end
 class ElfSubraces < Step
 
   def enter()
-    puts "ELF subrace selection"
+    continue
+    @options = 3
+    @section = "subrace"
+    instructions
     return 'background_step'
   end
 end
