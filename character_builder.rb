@@ -19,6 +19,20 @@ class Step
     There are #{@options} choices of #{@section}:
     """
   end
+
+  def selector
+    #get the number of options from the step
+      ##{options}
+    #display those steps
+    #$stdin.gets.chomp
+  end
+
+  def descriptor
+    #use the numbers from the selector
+  end
+
+  def error_checkor
+  end
 end
 
 
@@ -144,6 +158,9 @@ class DwarfSubraces < Step
     """
     return 'background_step'
   end
+
+
+
 end
 
 class ElfSubraces < Step
