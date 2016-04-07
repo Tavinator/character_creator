@@ -1,66 +1,68 @@
-class RaceSelector
+require "./step"
+require "./display_item"
 
-  def first_question
-    puts """
-    The first step is selecting a race.
-    If you know the race you want to select type 'ready'
-    Otherwise type in the number to know more about each race
-    There are 3 choices:
-    1. 'Human' Blah blah humans have these things
-    2. 'Dwarf' Blah Dwarves have these other things
-    3. 'Elf' Elves have these things
+class Race < Step
+
+  def enter()
+    print """
+    The first step is selecting a race for your character.
+    The race determines what extra racial abilities you will get
     """
-    first_question_logic
+    continue
+    selector_rules
   end
 
-  def first_question_logic
+  private
+
+  HUMAN = DisplayItem.new("Human", "Humans" ,"blah", "blah blah long")
+  DWARF = DisplayItem.new("Dwarf", "Dwarves" ,"small", "angry")
+  ELF = DisplayItem.new("Elf", "Elves" ,"slender", "annoying")
+
+  def selector_rules   #works!
+
+    @options = [HUMAN, DWARF, ELF]
+    @section = "race"
+    instructions
+    @options.each_with_index {|option, index| print "\n #{index+1} #{option.short_selection}" }
+    prompt = "\n> "
+    print prompt
     @choice = $stdin.gets.chomp
-    if @choice == ("1") || @choice == ("2") || @choice == ("3")
-      race_descriptions
-    elsif @choice == "ready"
-      puts "race_selected"
-      race_selection
+    choices
+  end
+
+  def choices
+    system "clear"
+    if @choice.strip =~ /\A\d+\z/ && @options[@choice.to_i-1]
+      descriptions
+    elsif @options.map(&:type).include?(@choice)
+      selection_logic
     else
       puts "try again you niny"
-      first_question
+      selector_rules
     end
   end
 
-  def race_descriptions
-    if @choice == "1"
-      puts "human shit is this"
-    elsif @choice == "2"
-      puts "dwarf shit is this"
-    elsif @choice == "3"
-      puts "elf shit be this too"
-    else
-      puts "something is wrong"
-    end
-    first_question
+  def descriptions
+    long_blurb = @options[@choice.to_i-1].long_description
+    puts long_blurb
+    selector_rules
   end
 
-  def race_selection
-    puts """
-    Select which race you want to play as:
-    1. 'Human'
-    2. 'Dwarf'
-    3. 'Elf'
+  def selection_logic
+    @section = "race"
+    system "clear"
+    print """
+    Perfect! You have selected #{@choice} as your #{@section}!
     """
-    @choice = $stdin.gets.chomp
-    race_selection_logic
-  end
 
-  def race_selection_logic
-    if @choice == "1"
-      puts "You have selected 'Human' as your race"
-    elsif @choice == "2"
-      puts "You have selected 'Dwarf' as your race"
-    elsif @choice == "3"
-      puts "You have selected 'Elf' as your race"
-    else
-      puts "there are only 3 options please select one of the three"
-      race_selection
+    # 1) create a class level hash constant where the keys are types and the values are steps
+    # 2) look up the choice in hash and return the value
+    if @choice == ("#{HUMAN.type}")
+      return 'human_subrace_step'
+    elsif @choice == ("#{DWARF.type}")
+      return 'dwarf_subrace_step'
+    else @choice == ("#{ELF.type}")
+      return 'elf_subrace_step'
     end
   end
-
 end
