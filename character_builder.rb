@@ -1,5 +1,6 @@
 require "./step"
 require "./race"
+require "./human_subraces"
 
 class Engine
 
@@ -31,16 +32,16 @@ class Introduction < Step
   end
 end
 
-class HumanSubraces < Step
-
-  def enter()
-    continue
-    @options = []
-    @section = "variants"
-    instructions
-    return 'background_step'
-  end
-end
+# class HumanSubraces < Step
+#
+#   def enter()
+#     continue
+#     @options = []
+#     @section = "variants"
+#     instructions
+#     return 'background_step'
+#   end
+# end
 
 class DwarfSubraces < Step
 
@@ -82,7 +83,7 @@ class Map
 
   @@steps = {
     'introduction' => Introduction.new(),
-    'race_step' => ::Race.new(),
+    'race_step' => Race.new(),
     'human_subrace_step' => HumanSubraces.new(),
     'dwarf_subrace_step' => DwarfSubraces.new(),
     'elf_subrace_step' => ElfSubraces.new(),

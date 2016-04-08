@@ -11,7 +11,7 @@ class Step
   end
 
   def instructions()
-    print "If you know the #{@section}  #{@name} you want to select type it in as show on the screen\nOtherwise type in the number to know more about each #{@section}\nThere are #{@options.length} choices of #{@section}:\n"
+    print "If you know the #{@section} you want to select type it in as show on the screen\nOtherwise type in the number to know more about each #{@section}\nThere are #{@options.length} choices of #{@section}:\n"
   end
 
   # def get_input()
