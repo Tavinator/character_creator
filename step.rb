@@ -18,9 +18,9 @@ class Step
     """
   end
 
-  # def get_input
-  #   prompt = "\n> "
-  #   print prompt
+  # def get_input()
+  #   @prompt = "\n> "
+  #   print @prompt
   #   @choice = $stdin.gets
   # end
 end

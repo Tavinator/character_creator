@@ -17,9 +17,9 @@ class Race < Step
   HUMAN = DisplayItem.new("Human", "Humans" ,"blah", "blah blah long")
   DWARF = DisplayItem.new("Dwarf", "Dwarves" ,"small", "angry")
   ELF = DisplayItem.new("Elf", "Elves" ,"slender", "annoying")
+  CLH = {HUMAN.type => 'human_subrace_step', DWARF.type => 'dwarf_subrace_step', ELF.type => 'elf_subrace_step'}
 
   def selector_rules   #works!
-
     @options = [HUMAN, DWARF, ELF]
     @section = "race"
     instructions
@@ -27,6 +27,7 @@ class Race < Step
     prompt = "\n> "
     print prompt
     @choice = $stdin.gets.chomp
+    # get_input
     choices
   end
 
@@ -54,15 +55,6 @@ class Race < Step
     print """
     Perfect! You have selected #{@choice} as your #{@section}!
     """
-
-    # 1) create a class level hash constant where the keys are types and the values are steps
-    # 2) look up the choice in hash and return the value
-    if @choice == ("#{HUMAN.type}")
-      return 'human_subrace_step'
-    elsif @choice == ("#{DWARF.type}")
-      return 'dwarf_subrace_step'
-    else @choice == ("#{ELF.type}")
-      return 'elf_subrace_step'
-    end
+    return CLH[@choice] if CLH.include?(@choice)
   end
 end
