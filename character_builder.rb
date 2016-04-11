@@ -1,6 +1,8 @@
 require "./step"
 require "./race"
 require "./human_subraces"
+require "./dwarf_subraces"
+require "./elf_subraces"
 
 class Engine
 
@@ -29,45 +31,6 @@ class Introduction < Step
     print "Welcome to Tavi's D&D 5E Character Builder.\nFollow the prompts and soon you will have yourself a character ready for\nADVENTURE!!!!\n"
     continue
     return 'race_step'
-  end
-end
-
-# class HumanSubraces < Step
-#
-#   def enter()
-#     continue
-#     @options = []
-#     @section = "variants"
-#     instructions
-#     return 'background_step'
-#   end
-# end
-
-class DwarfSubraces < Step
-
-  def enter()
-    continue
-    @options = 2
-    @section = "subrace"
-    instructions
-
-    # There are 2 kinds of #{@dwarf_display_item.plural_type}
-    print """
-    1. 'Hill' (warmer climate has +1 to this and +1 to this)
-    2. 'Mountain' (colder climate has +1 and does this other thing)
-    """
-    return 'background_step'
-  end
-end
-
-class ElfSubraces < Step
-
-  def enter()
-    continue
-    @options = 3
-    @section = "subrace"
-    instructions
-    return 'background_step'
   end
 end
 

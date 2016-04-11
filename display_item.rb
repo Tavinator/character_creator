@@ -16,7 +16,7 @@ class DisplayItem
   end
 
   def short_selection
-    "'#{@type}' : #{@short_description}"
+    "'#{@type}' \n #{@short_description}"
   end
 
   def short_description

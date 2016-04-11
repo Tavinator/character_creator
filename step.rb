@@ -3,6 +3,10 @@ class Step
   def enter()
   end
 
+  def welcome()
+    print "The next step is selecting a #{@section} for your character.\n"
+  end
+
   def continue()
     puts "\n...press 'Enter' to continue"
     $stdin.gets.chomp
