@@ -5,6 +5,7 @@ require "./human_subraces"
 require "./dwarf_subraces"
 require "./elf_subraces"
 require "./backgrounds"
+require "./classes"
 
 class Engine
 
@@ -14,7 +15,7 @@ class Engine
 
   def play()
     current_step = @step_map.opening_step()
-    last_step = @step_map.next_step('background_step')
+    last_step = @step_map.next_step('class_step')
 
     while current_step != last_step
       next_step_name = current_step.enter()
@@ -34,6 +35,7 @@ class Map
     'dwarf_subrace_step' => DwarfSubraces.new(),
     'elf_subrace_step' => ElfSubraces.new(),
     'background_step' => Backgrounds.new(),
+    'class_step' => Classes.new(),
   }
 
   def initialize(start_step)

@@ -8,7 +8,7 @@ class Race < Step
   end
 
   def enter()
-    print "The first step is selecting a race for your character.\nThe race determines what extra racial abilities you will get.\n"
+    print "The first major step is selecting a race for your character.\nThe race determines what extra racial abilities you will get.\n"
     continue
     selector_rules
   end
