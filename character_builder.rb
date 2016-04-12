@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require "./step"
 require "./introduction"
 require "./race"
