@@ -5,6 +5,7 @@ class Backgrounds < Step
   def initialize()
     @options = [NOBLE, SOLDIER, ACOLYTE]
     @section = "background"
+    super
   end
 
   def enter()

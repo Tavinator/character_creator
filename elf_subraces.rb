@@ -5,6 +5,7 @@ class ElfSubraces < Step
   def initialize()
     @options = [HIGH, WOOD]
     @section = "subraces"
+    super
   end
 
   def enter()

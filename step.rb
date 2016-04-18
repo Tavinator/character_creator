@@ -1,6 +1,27 @@
+
 class Step
 
+  def initialize(step_def)
+    # @my_character = Array.new
+    @options = step_def["selections"].map do |raw_selection|
+      type = raw_selection["type"]
+      plural_type = raw_selection["plural_type"]
+      short_description = raw_selection["short_description"]
+      long_description = raw_selection["long_description"]
+      sub_step = raw_selection["sub_step"]
+      DisplayItem.new(type, plural_type, short_description, long_description, sub_step)
+    end
+    @section = step_def["section"]
+  end
+
+  # def initialize()
+  #   @my_choices= Array.new
+  # end
+
   def enter()
+    print "The first major step is selecting a race for your character.\nThe race determines what extra racial abilities you will get.\n"
+    continue
+    selector_rules
   end
 
   def welcome()
@@ -48,10 +69,16 @@ class Step
   end
 
   def selection_logic
+
     system "clear"
     my_selection = @options[@choice.to_i-1].type
+    # to_save = @option[@choice].type
     print "Perfect! You have selected #{my_selection} as your #{@section}!\n"
     next_selection_hash = DisplayItem.select_next(@options)
+    @my_choices.push(my_selection)
+    @my_choices.each do | thing |
+      puts thing
+    end
     return next_selection_hash[my_selection] if next_selection_hash.include?(my_selection)
   end
 end

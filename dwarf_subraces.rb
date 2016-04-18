@@ -5,6 +5,7 @@ class DwarfSubraces < Step
   def initialize()
     @options = [HILL, MOUNTAIN]
     @section = "subrace"
+    super
   end
 
   def enter()

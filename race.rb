@@ -5,6 +5,7 @@ class Race < Step
   def initialize()
     @options = [HUMAN, DWARF, ELF]
     @section = "race"
+    super
   end
 
   def enter()

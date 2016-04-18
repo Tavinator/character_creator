@@ -1,0 +1,116 @@
+[
+  {
+    "section": "race",
+    "introText": "The first major step is selecting a race for your character.\nThe race determines what extra racial abilities you will get.",
+    "selections": [
+      {
+        "type": "Human",
+        "plural_type": "Humans",
+        "short_description": "Size: Med. Alignment: Any. Speed: 30. Languages: Common and one other.\n Humans have two versions: Normal (+1 to each ability) OR Variant (+1 to any two ablities, +1 skill, +1 feat)",
+        "long_description": "Humans blurb about humans n shit.\n Age: 17 - 95. Size: 5-6 Feet tall, etc",
+        "sub_step": "human_subrace_step"
+      },
+      {
+        "type": "Dwarf",
+        "plural_type": "Dwarves",
+        "short_description": "small",
+        "long_description": "angry",
+        "sub_step":"dwarf_subrace_step"
+      },
+      {
+        "type": "Elf",
+        "plural_type": "Elves",
+        "short_description": "slender",
+        "long_description": "annoying",
+        "sub_step":"elf_subrace_step"
+      }
+    ]
+  },
+  {
+    "section": "variant",
+    "intro_text": null,
+    "selections": [
+      {
+        "type": "Normal",
+        "plural_type": "Normal Humans",
+        "short_description": "+1 to each ability",
+        "long_description": "By selecting 'Normal', each of your 6 ability scores will be increased by 1.",
+        "sub_step": "background_step"
+      },
+      {
+        "type": "Variant",
+        "plural_type": "Variant Humans",
+        "short_description": "+1 to only 2 ablities, +1 skill, +1 feat",
+        "long_description": "By selecting 'Variant', only 2 of your 6 ability scores will be increased by 1.\n Also you will later on be able to select an additional skill and a feat.",
+        "sub_step": "background_step"
+      }
+    ]
+  },
+  {
+    "section": "subrace",
+    "intro_text": null,
+    "selections": [
+      {
+        "type": "Hill",
+        "plural_type": "Hill Dwarves",
+        "short_description": "WIS +1 & Dwarven Toughness: +1HP each level",
+        "long_description": "By selecting 'Hill', you will gain +1 to your Wisdom score\n AND gain the Feat: Dwarven Toughness, which increases your\n hit points by 1 every level, starting at level 1. ",
+        "sub_step": "background_step"
+      },
+      {
+        "type": "Mountain",
+        "plural_type": "Mountain Dwarves",
+        "short_description": "STR +1 & Dwarven Armor Training",
+        "long_description": "By selecting 'Mountain', you will gain +1 to your Strength score\n AND gain the Proficiency: Dwarven Armor Training, meaning\n you are now proficient with light and medium armor.",
+        "sub_step": "background_step"
+      }
+    ]
+  },
+  {
+    "section": "subrace",
+    "intro_text": null,
+    "selections": [
+      {
+        "type": "High",
+        "plural_type": "High Elves",
+        "short_description": "INT +1 & 1 Wizard Cantrip & 1 Extra Language",
+        "long_description": "By selecting 'High', you will gain +1 to your Intelligence score\n AND gain a Spell Cantrip: Any one cantrip from the wizard spell list.\n AND gain an additional language that you can read, write, and speak.",
+        "sub_step": "background_step"
+      },
+      {
+        "type": "Wood",
+        "plural_type": "Wood Elves",
+        "short_description": "WIS +1 & Feats: Fleet of Foot & Mask of the Wild",
+        "long_description": "By selecting 'Wood', you will gain +1 to your Wisdom score\n AND gain the Feat: Fleet of Foot, which increases you move speed to 35\n AND gain the Feat: Mask of the Wild, where you can attempt to hide when\n lightly obscured by foliage, heavy rain, falling snow, mist,\n or other natural phenomenon.",
+        "sub_step": "background_step"
+      }
+    ]
+  },
+  {
+    "section": "background",
+    "intro_text": "The second major step is selecting a background for your character.\nThe background helps describe your character on how he/she grew up.\n",
+    "selections": [
+      {
+        "type": "Noble",
+        "plural_type": "Nobles",
+        "short_description": "Skill Prof: History & Persuasion. Tool Prof: Yes. Additional Languages: One of your choice.\n And the Noble specific feature: Retainers.",
+        "long_description": "As a Noble, you understand wealth, power, and privilege. You carry a noble title\n, and your family owns land, collects taxes,\n and wields a significant political influence.\n Your Skill Proficencies are in History and Persuasion.\n Your Tool Proficencies are one type of gaming set.\n You are Proficent in 1 additional language of your choice.\n Your Extra equipment is: A set of fine clothers, a signet ring, a scroll of pedigree,\n and a purse containing 25gp.\n You also have the service of three retainers loyal to your family. These retainers can be attendents or messengers, and one might be majordomo. Your retainers are commoners who can perform mundane tasks for you, but they do not fight for you, will not follow you into obviously dangerous areas (such as dungeons), and will leave if they are frequently endangered or abused.",
+        "sub_step": "class_step"
+      },
+      {
+        "type": "Soldier",
+        "plural_type": "Soldiers",
+        "short_description": "Skill Prof: Athletics & Intimidation. Tool Prof: Yes. Additional Languages: No.\n And the Soldier specific feature: Military Rank.",
+        "long_description": "SOLDIER BLURB",
+        "sub_step": "class_step"
+      },
+      {
+        "type": "Acolyte",
+        "plural_type": "Acolytes",
+        "short_description": "Skill Prof: Insight & Religion. Tool Prof: No. Additional Languages: Two of your choice.\n And the Acolyte specific feature: Shelter of the Faithful.",
+        "long_description": "ACOLYTE BLURB",
+        "sub_step": "class_step"
+      }
+    ]
+  }
+]

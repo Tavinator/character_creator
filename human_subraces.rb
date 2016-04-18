@@ -5,6 +5,7 @@ class HumanSubraces < Step
   def initialize()
     @options = [NORMAL, VARIANT]
     @section = "variants"
+    super
   end
 
   def enter()

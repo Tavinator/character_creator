@@ -1,4 +1,7 @@
 #!/usr/bin/ruby
+require "pry"
+require "rubygems"
+require "json"
 
 require "./step"
 require "./introduction"
@@ -30,13 +33,27 @@ end
 
 class Map
 
+  # @@steps = {
+  #   'introduction' => Introduction.new(),
+  #   'race_step' => Race.new(),
+  #   'human_subrace_step' => HumanSubraces.new(),
+  #   'dwarf_subrace_step' => DwarfSubraces.new(),
+  #   'elf_subrace_step' => ElfSubraces.new(),
+  #   'background_step' => Backgrounds.new(),
+  #   'class_step' => Classes.new(),
+  # }
+
+  file = File.open('config/steps.json')
+  raw_steps = JSON.parse(file.read)
+
+
   @@steps = {
     'introduction' => Introduction.new(),
-    'race_step' => Race.new(),
-    'human_subrace_step' => HumanSubraces.new(),
-    'dwarf_subrace_step' => DwarfSubraces.new(),
-    'elf_subrace_step' => ElfSubraces.new(),
-    'background_step' => Backgrounds.new(),
+    'race_step' => Step.new(raw_steps[0]),
+    'human_subrace_step' => Step.new(raw_steps[1]),
+    'dwarf_subrace_step' => Step.new(raw_steps[2]),
+    'elf_subrace_step' => Step.new(raw_steps[3]),
+    'background_step' => Step.new(raw_steps[4]),
     'class_step' => Classes.new(),
   }
 
