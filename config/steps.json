@@ -1,5 +1,11 @@
 [
   {
+    "section": "introduction",
+    "introText": "intro text is this",
+    "selections": [],
+    "next_step": "race_step"
+  },
+  {
     "section": "race",
     "introText": "The first major step is selecting a race for your character.\nThe race determines what extra racial abilities you will get.",
     "selections": [

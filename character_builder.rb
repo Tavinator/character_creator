@@ -48,13 +48,13 @@ class Map
 
 
   @@steps = {
-    'introduction' => Introduction.new(),
-    'race_step' => Step.new(raw_steps[0]),
-    'human_subrace_step' => Step.new(raw_steps[1]),
-    'dwarf_subrace_step' => Step.new(raw_steps[2]),
-    'elf_subrace_step' => Step.new(raw_steps[3]),
-    'background_step' => Step.new(raw_steps[4]),
-    'class_step' => Classes.new(),
+    'introduction' => Step.new(raw_steps[0]),
+    'race_step' => Step.new(raw_steps[1]),
+    'human_subrace_step' => Step.new(raw_steps[2]),
+    'dwarf_subrace_step' => Step.new(raw_steps[3]),
+    'elf_subrace_step' => Step.new(raw_steps[4]),
+    'background_step' => Step.new(raw_steps[5]),
+    # 'class_step' => Classes.new(),
   }
 
   def initialize(start_step)

@@ -3,6 +3,7 @@ class Step
 
   def initialize(step_def)
     # @my_character = Array.new
+    @next_step = step_def["next_step"]
     @options = step_def["selections"].map do |raw_selection|
       type = raw_selection["type"]
       plural_type = raw_selection["plural_type"]
@@ -21,7 +22,11 @@ class Step
   def enter()
     print "The first major step is selecting a race for your character.\nThe race determines what extra racial abilities you will get.\n"
     continue
-    selector_rules
+    if @options.count == 0
+      @next_step
+    else
+      selector_rules
+    end
   end
 
   def welcome()
@@ -75,10 +80,10 @@ class Step
     # to_save = @option[@choice].type
     print "Perfect! You have selected #{my_selection} as your #{@section}!\n"
     next_selection_hash = DisplayItem.select_next(@options)
-    @my_choices.push(my_selection)
-    @my_choices.each do | thing |
-      puts thing
-    end
+    # @my_choices.push(my_selection)
+    # @my_choices.each do | thing |
+    #   puts thing
+    # end
     return next_selection_hash[my_selection] if next_selection_hash.include?(my_selection)
   end
 end
